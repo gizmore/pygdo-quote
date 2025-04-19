@@ -21,5 +21,5 @@ class QuoteTestCase(GDOTestCase):
         giz = cli_gizmore()
         out = cli_plug(giz, '$quote.add giz|work{3}: Code you see is code in use.')
         self.assertIn('created', out, "Quote was not created.")
-        out = cli_plug(giz, '$quote.vote --score=3 1')
+        out = cli_plug(giz, '$quoteup --score=3 1')
         self.assertIn('registered', out, "Quote was not voted.")
