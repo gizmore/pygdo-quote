@@ -6,7 +6,11 @@ class vote(MethodVote):
 
     @classmethod
     def gdo_trigger(cls) -> str:
-        return 'quoteup'
+        return 'quote.up'
+
+    @classmethod
+    def gdo_trig(cls) -> str:
+        return 'qtup'
 
     def gdo_vote_table(self) -> GDO_VoteTable:
         return GDO_VoteTable.table()

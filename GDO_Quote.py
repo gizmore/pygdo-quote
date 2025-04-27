@@ -5,6 +5,7 @@ from gdo.core.GDT_Creator import GDT_Creator
 from gdo.core.GDT_Text import GDT_Text
 from gdo.date.GDT_Created import GDT_Created
 from gdo.vote.GDT_VoteCount import GDT_VoteCount
+from gdo.vote.GDT_VoteOutcome import GDT_VoteOutcome
 from gdo.vote.WithVotes import WithVotes
 
 
