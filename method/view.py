@@ -1,12 +1,19 @@
 from gdo.base.GDT import GDT
 from gdo.base.Method import Method
 from gdo.core.GDT_Object import GDT_Object
-from gdo.message.GDT_Paragraph import GDT_Paragraph
 from gdo.quote.GDO_Quote import GDO_Quote
 from gdo.ui.GDT_Card import GDT_Card
 
 
 class view(Method):
+
+    @classmethod
+    def gdo_trig(cls) -> str:
+        return "qt"
+
+    @classmethod
+    def gdo_trigger(cls) -> str:
+        return "quote"
 
     def gdo_parameters(self) -> [GDT]:
         return [
@@ -20,6 +27,8 @@ class view(Method):
         quote = self.get_quote()
         card = GDT_Card().gdo(quote).creator_header()
         card.get_content().add_field(
-            quote.column('quote_text')
+            quote.column('quote_text'),
+            quote.column('quote_vote_count'),
+            quote.column('quote_vote_score'),
         )
         return card

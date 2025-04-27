@@ -1,1 +1,8 @@
 module_quote = "Quote"
+
+#######
+# Add #
+#######
+mt_quote_add = "Add Quote"
+md_quote_add = "Add a Quote to the quote database."
+msg_quote_added = "Quote#%s has been added. You can vote with $T$qtup --score=%d-%d %1$s"

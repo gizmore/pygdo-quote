@@ -7,10 +7,17 @@ from gdo.table.MethodQueryTable import MethodQueryTable
 class quotes(MethodQueryTable):
 
     @classmethod
-    def gdo_trigger(cls) -> str:
-        return 'quotes'
+    def gdo_trig(cls) -> str:
+        return "qts"
 
-    def gdo_searched(self) -> bool:
+    @classmethod
+    def gdo_trigger(cls) -> str:
+        return "quotes"
+
+    def gdo_paginated(self) -> bool:
+        return False
+
+    def gdo_search_positional(self) -> bool:
         return True
 
     def gdo_table(self) -> GDO:

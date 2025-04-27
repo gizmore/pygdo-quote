@@ -8,6 +8,9 @@ class add(MethodForm):
     """
     Add a quote to the database.
     """
+    @classmethod
+    def gdo_trig(cls) -> str:
+        return 'qtadd'
 
     @classmethod
     def gdo_trigger(cls) -> str:
@@ -17,7 +20,7 @@ class add(MethodForm):
         table = GDO_Quote.table()
         text_c = table.column('quote_text')
         form.add_field(
-            GDT_RestOfText('text').min(text_c._min).max(text_c._max).not_null(),
+            GDT_RestOfText('text').min(text_c._minlen).max(text_c._maxlen).not_null(),
         )
         super().gdo_create_form(form)
 
@@ -25,4 +28,5 @@ class add(MethodForm):
         quote = GDO_Quote.blank({
             'quote_text': self.param_value('text'),
         }).insert()
-        return self.msg('msg_quote_added', (quote.get_id(), quote.get_vote_min(), quote.get_vote_max()))
+        vt = quote.gdo_votes_table()
+        return self.msg('msg_quote_added', (quote.get_id(), vt.gdo_min_vote_score(), vt.gdo_max_vote_score()))
