@@ -20,7 +20,7 @@ class add(MethodForm):
         table = GDO_Quote.table()
         text_c = table.column('quote_text')
         form.add_field(
-            GDT_RestOfText('text').min(text_c._minlen).max(text_c._maxlen).not_null(),
+            GDT_RestOfText('text').min(text_c._min_len).max(text_c._max_len).not_null(),
         )
         super().gdo_create_form(form)
 

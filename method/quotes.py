@@ -24,4 +24,4 @@ class quotes(MethodQueryTable):
         return GDO_Quote.table()
 
     def render_gdo(self, gdo: GDO, mode: Mode) -> any:
-        return 'X'
+        return gdo.render(mode)
