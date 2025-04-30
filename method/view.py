@@ -15,7 +15,7 @@ class view(Method):
     def gdo_trigger(cls) -> str:
         return "quote"
 
-    def gdo_parameters(self) -> [GDT]:
+    def gdo_parameters(self) -> list[GDT]:
         return [
             GDT_Object('id').table(GDO_Quote.table()).not_null().default_random(),
         ]
