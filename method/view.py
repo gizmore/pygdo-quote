@@ -26,7 +26,7 @@ class view(Method):
     def gdo_execute(self) -> GDT:
         quote = self.get_quote()
         card = GDT_Card().gdo(quote).creator_header()
-        card.get_content().add_field(
+        card.get_content().add_fields(
             quote.column('quote_text'),
             quote.column('quote_vote_count'),
             quote.column('quote_vote_score'),

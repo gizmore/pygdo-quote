@@ -31,7 +31,7 @@ class GDO_Quote(WithQuoteVotes, GDO):
     def render(self, mode: Mode = Mode.HTML):
         card = GDT_Card().gdo(self)
         card.creator_header()
-        card.get_content().add_field(
+        card.get_content().add_fields(
             self.column('quote_text'),
             self.column('quote_vote_count'),
             self.column('quote_vote_score'),
