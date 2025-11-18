@@ -28,7 +28,7 @@ class GDO_Quote(WithQuoteVotes, GDO):
     def get_user(self) -> GDO_User:
         return self.gdo_value('quote_creator')
 
-    def render(self, mode: Mode = Mode.html):
+    def render(self, mode: Mode = Mode.render_html):
         card = GDT_Card().gdo(self)
         card.creator_header()
         card.get_content().add_fields(
